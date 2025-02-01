@@ -1,6 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @post %>
+<div>
+  <h3>Comments:</h3>
+  <% @comments.each do |comment| %>
+    <p>
+      <%= comment.comment %>
+      <strong>Author: <%= comment.author %></strong>
+    </p>
+  <% end %>
+</div>
 
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
