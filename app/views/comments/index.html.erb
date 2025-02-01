@@ -1,7 +1,6 @@
 <h1>Comments</h1>
 <dl>
   <% @comments.each do |comment| %>
-    <dt><%= comment.author %>:</dt>
-    <dd><%= comment.comment %></dd>
+    <%= render comment %>
   <% end %>
 </dl>
