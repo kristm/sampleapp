@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_post, only: [:index, :new, :create]
+  before_action :set_comment, only: [:show]
 
   def index
     @comments = Comment.where(post_id: @post.id)
@@ -27,13 +28,16 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comment = Comment.find_by(params.expect(:id))
   end
 
   def delete
   end
 
   private
+
+  def set_comment
+    @comment = Comment.find(params.expect(:id))
+  end
 
   def set_post
     @post = Post.find(params.expect(:post_id))
