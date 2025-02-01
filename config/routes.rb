@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do
+    get '/comments' => 'comments#index'
+    get '/comments/new' => 'comments#new'
+    post '/comments' => 'comments#create'
+    get '/comments/:id' => 'comments#show'
+  end
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
