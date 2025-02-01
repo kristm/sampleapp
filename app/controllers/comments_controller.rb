@@ -1,17 +1,16 @@
 class CommentsController < ApplicationController
+  before_action :set_post, only: [:index, :new, :create]
+
   def index
-    @post = Post.find_by(params[:post_id])
     @comments = Comment.where(post_id: @post.id)
   end
 
   def new
-    @post = Post.find_by(params[:post_id])
     @comment = Comment.new
   end
 
   def create
     @comment = Comment.new comment_params
-    @post = Post.find_by(params[:post_id])
     @comment.post_id = @post.id
 
     if @comment.save
@@ -35,6 +34,10 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def set_post
+    @post = Post.find_by(params[:post_id])
+  end
 
   def comment_params
     #params.require(:comment).permit(:comment, :author)
