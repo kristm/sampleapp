@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comment = Comment.find_by(params[:id])
+    @comment = Comment.find_by(params.expect(:id))
   end
 
   def delete
@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find_by(params[:post_id])
+    @post = Post.find(params.expect(:post_id))
   end
 
   def comment_params
