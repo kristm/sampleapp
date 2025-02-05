@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   resources :posts do
-    get '/comments' => 'comments#index'
-    get '/comments/new' => 'comments#new'
-    post '/comments' => 'comments#create'
-    get '/comments/:id' => 'comments#show'
+    resources :comments
   end
 
 
