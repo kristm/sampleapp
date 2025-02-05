@@ -15,6 +15,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_31_142443) do
     t.string "comment"
     t.string "author"
     t.integer "post_id"
+    t.boolean "hidden"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
