@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  get '/signup', to: 'users#new', as: 'signup'
+  post '/users', to: 'users#create'
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
