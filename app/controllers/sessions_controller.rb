@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      current_user
       redirect_to dashboard_path
     else
       redirect_to login_path
@@ -17,7 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    @current_user = nil
 
     redirect_to root_path
   end
