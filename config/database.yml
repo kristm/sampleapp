@@ -26,16 +26,16 @@ test:
 production:
   primary:
     <<: *default
-    database: ENV["PGDB"]
+    url: <%= ENV["DATABASE_URL"] %>
   cache:
     <<: *default
-    database: ENV["PGDB"]
-    migrations_paths: ENV["PGDB"]
+    database: <%= ENV["PGDB"] %>
+    migrations_paths: <%= ENV["PGDB"] %>
   queue:
     <<: *default
-    database: ENV["PGDB"]
-    migrations_paths: ENV["PGDB"]
+    database: <%= ENV["PGDB"] %>
+    migrations_paths: <%= ENV["PGDB"] %>
   cable:
     <<: *default
-    database: ENV["PGDB"]
-    migrations_paths: ENV["PGDB"]
+    database: <%= ENV["PGDB"] %>
+    migrations_paths: <%= ENV["PGDB"] %>
