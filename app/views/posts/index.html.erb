@@ -5,12 +5,14 @@
 <h1>Posts</h1>
 
 <div id="posts">
+  <dl>
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
+    <dd><%= link_to post.title, post_path(post), data: { turbo_frame: 'show_article' } %></dd>
   <% end %>
+  </dl>
+  <article>
+    <%= render @posts.first %>
+  </article>
 </div>
 
 <%= link_to "New post", new_post_path %>

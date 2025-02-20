@@ -21,3 +21,11 @@ form p { padding: 1rem }
 footer {
   background: red; color: white; position: absolute; bottom: 0; width: 100vw;
 }
+
+#posts {
+  display: flex;
+  gap: 1rem;
+
+  & article { padding: 1rem; border: 1px solid limegreen }
+  
+}
