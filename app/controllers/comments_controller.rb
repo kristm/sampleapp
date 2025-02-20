@@ -14,10 +14,13 @@ class CommentsController < ApplicationController
     @comment = Comment.new comment_params
     @comment.post_id = @post.id
 
-    if @comment.save
-      redirect_to posts_path
-    else
-      render :new
+    respond_to do |format|
+      if @comment.save
+          format.turbo_stream
+          format.html { redirect_to posts_path }
+      else
+        format.html { render :new }
+      end
     end
   end
 

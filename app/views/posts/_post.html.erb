@@ -11,17 +11,9 @@
     </p>
 
   </div>
-  <div class="comments">
+  <div id="comments">
     <h3>Comments:</h3>
-    <% post.comments.each do |comment| %>
-      <p>
-        <%= comment.comment %>
-        <strong>Author: <%= comment.author %></strong>
-      </p>
-    <% end %>
-
-    <%= turbo_frame_tag 'new_comment' do %>
-      <%= link_to "Add comment",  new_post_comment_path(post) %>
-    <% end %>
+    <%= render post.comments %>
   </div>
+  <%= turbo_frame_tag 'new_comment', src: new_post_comment_path(post) %>
 <% end %>
